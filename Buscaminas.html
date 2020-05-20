@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Buscaminas</title>
+	<link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+	<style>
+		*{
+			box-sizing: border-box;
+			font-family: arial;
+			text-align: justify;
+		}
+		
+		body{
+		//	background-image: url("PaperGraph.png");
+		}
+	
+		header{
+			width:100%;
+			height: 100px;
+			border: 5px double white;
+			background-color: black;
+			margin-bottom: 5px;
+			color: white;
+			font-family: 'Berkshire Swash', cursive;
+			font-size:2em;
+		}
+		
+		.celda{
+			border:1px solid black;
+			width:30px;
+			height:30px;
+			float:left;
+			background-color:lightgrey;
+			text-align:center;
+			padding-top:5px;
+			background-image: url('texturademetal_30306.jpg');
+			background-size: 30px 30px;
+		}
+		
+		.linea{
+			width:300px;
+			height: 30px;
+			background-color: black;
+		
+		}
+		
+		#tablero{
+			visibility: hidden;
+			float:left;
+			width:300px;
+			height:300px;
+		}
+		
+		#cuadrito{
+			height:5px;
+		}
+		
+		#panel_infotodo{
+			width:300px;
+			height:300px;
+			border: 1px solid black;
+			float:left;
+			margin-left:10px;
+		}
+		
+	</style>
+
+
+	<script src="buscaminas.js" type="text/javascript">
+	</script>
+</head>
+<body>
+<header>Buscaminas</header>
+	<input type="button" onclick="iniciar()" value="Iniciar Partida"/>
+	<input type="button" onclick="poner_marca()" value="Poner Bandera" id="poner_marca_b"/>
+	<input type="button" onclick="quitar_marca()" value="Quitar Bandera" id="quitar_marca_b"/>
+	<input type="button" onclick="escribir_info('')" value="INFO"/>
+	<input type="button" onclick="ensenar_bombas()" value="Terminar Partida"/>
+	
+	
+	<div id="cuadrito"></div>
+	
+	<div id="tablero">
+		<div class="linea">
+			<div class="celda" id="celda00" onclick="destapar(this)"></div>
+			<div class="celda" id="celda01" onclick="destapar(this)"></div>
+			<div class="celda" id="celda02" onclick="destapar(this)"></div>
+			<div class="celda" id="celda03" onclick="destapar(this)"></div>
+			<div class="celda" id="celda04" onclick="destapar(this)"></div>
+			<div class="celda" id="celda05" onclick="destapar(this)"></div>
+			<div class="celda" id="celda06" onclick="destapar(this)"></div>
+			<div class="celda" id="celda07" onclick="destapar(this)"></div>
+			<div class="celda" id="celda08" onclick="destapar(this)"></div>
+			<div class="celda" id="celda09" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda10" onclick="destapar(this)"></div>
+			<div class="celda" id="celda11" onclick="destapar(this)"></div>
+			<div class="celda" id="celda12" onclick="destapar(this)"></div>
+			<div class="celda" id="celda13" onclick="destapar(this)"></div>
+			<div class="celda" id="celda14" onclick="destapar(this)"></div>
+			<div class="celda" id="celda15" onclick="destapar(this)"></div>
+			<div class="celda" id="celda16" onclick="destapar(this)"></div>
+			<div class="celda" id="celda17" onclick="destapar(this)"></div>
+			<div class="celda" id="celda18" onclick="destapar(this)"></div>
+			<div class="celda" id="celda19" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda20" onclick="destapar(this)"></div>
+			<div class="celda" id="celda21" onclick="destapar(this)"></div>
+			<div class="celda" id="celda22" onclick="destapar(this)"></div>
+			<div class="celda" id="celda23" onclick="destapar(this)"></div>
+			<div class="celda" id="celda24" onclick="destapar(this)"></div>
+			<div class="celda" id="celda25" onclick="destapar(this)"></div>
+			<div class="celda" id="celda26" onclick="destapar(this)"></div>
+			<div class="celda" id="celda27" onclick="destapar(this)"></div>
+			<div class="celda" id="celda28" onclick="destapar(this)"></div>
+			<div class="celda" id="celda29" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda30" onclick="destapar(this)"></div>
+			<div class="celda" id="celda31" onclick="destapar(this)"></div>
+			<div class="celda" id="celda32" onclick="destapar(this)"></div>
+			<div class="celda" id="celda33" onclick="destapar(this)"></div>
+			<div class="celda" id="celda34" onclick="destapar(this)"></div>
+			<div class="celda" id="celda35" onclick="destapar(this)"></div>
+			<div class="celda" id="celda36" onclick="destapar(this)"></div>
+			<div class="celda" id="celda37" onclick="destapar(this)"></div>
+			<div class="celda" id="celda38" onclick="destapar(this)"></div>
+			<div class="celda" id="celda39" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda40" onclick="destapar(this)"></div>
+			<div class="celda" id="celda41" onclick="destapar(this)"></div>
+			<div class="celda" id="celda42" onclick="destapar(this)"></div>
+			<div class="celda" id="celda43" onclick="destapar(this)"></div>
+			<div class="celda" id="celda44" onclick="destapar(this)"></div>
+			<div class="celda" id="celda45" onclick="destapar(this)"></div>
+			<div class="celda" id="celda46" onclick="destapar(this)"></div>
+			<div class="celda" id="celda47" onclick="destapar(this)"></div>
+			<div class="celda" id="celda48" onclick="destapar(this)"></div>
+			<div class="celda" id="celda49" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda50" onclick="destapar(this)"></div>
+			<div class="celda" id="celda51" onclick="destapar(this)"></div>
+			<div class="celda" id="celda52" onclick="destapar(this)"></div>
+			<div class="celda" id="celda53" onclick="destapar(this)"></div>
+			<div class="celda" id="celda54" onclick="destapar(this)"></div>
+			<div class="celda" id="celda55" onclick="destapar(this)"></div>
+			<div class="celda" id="celda56" onclick="destapar(this)"></div>
+			<div class="celda" id="celda57" onclick="destapar(this)"></div>
+			<div class="celda" id="celda58" onclick="destapar(this)"></div>
+			<div class="celda" id="celda59" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda60" onclick="destapar(this)"></div>
+			<div class="celda" id="celda61" onclick="destapar(this)"></div>
+			<div class="celda" id="celda62" onclick="destapar(this)"></div>
+			<div class="celda" id="celda63" onclick="destapar(this)"></div>
+			<div class="celda" id="celda64" onclick="destapar(this)"></div>
+			<div class="celda" id="celda65" onclick="destapar(this)"></div>
+			<div class="celda" id="celda66" onclick="destapar(this)"></div>
+			<div class="celda" id="celda67" onclick="destapar(this)"></div>
+			<div class="celda" id="celda68" onclick="destapar(this)"></div>
+			<div class="celda" id="celda69" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda70" onclick="destapar(this)"></div>
+			<div class="celda" id="celda71" onclick="destapar(this)"></div>
+			<div class="celda" id="celda72" onclick="destapar(this)"></div>
+			<div class="celda" id="celda73" onclick="destapar(this)"></div>
+			<div class="celda" id="celda74" onclick="destapar(this)"></div>
+			<div class="celda" id="celda75" onclick="destapar(this)"></div>
+			<div class="celda" id="celda76" onclick="destapar(this)"></div>
+			<div class="celda" id="celda77" onclick="destapar(this)"></div>
+			<div class="celda" id="celda78" onclick="destapar(this)"></div>
+			<div class="celda" id="celda79" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda80" onclick="destapar(this)"></div>
+			<div class="celda" id="celda81" onclick="destapar(this)"></div>
+			<div class="celda" id="celda82" onclick="destapar(this)"></div>
+			<div class="celda" id="celda83" onclick="destapar(this)"></div>
+			<div class="celda" id="celda84" onclick="destapar(this)"></div>
+			<div class="celda" id="celda85" onclick="destapar(this)"></div>
+			<div class="celda" id="celda86" onclick="destapar(this)"></div>
+			<div class="celda" id="celda87" onclick="destapar(this)"></div>
+			<div class="celda" id="celda88" onclick="destapar(this)"></div>
+			<div class="celda" id="celda89" onclick="destapar(this)"></div>
+		</div>
+		<div class="linea">
+			<div class="celda" id="celda90" onclick="destapar(this)"></div>
+			<div class="celda" id="celda91" onclick="destapar(this)"></div>
+			<div class="celda" id="celda92" onclick="destapar(this)"></div>
+			<div class="celda" id="celda93" onclick="destapar(this)"></div>
+			<div class="celda" id="celda94" onclick="destapar(this)"></div>
+			<div class="celda" id="celda95" onclick="destapar(this)"></div>
+			<div class="celda" id="celda96" onclick="destapar(this)"></div>
+			<div class="celda" id="celda97" onclick="destapar(this)"></div>
+			<div class="celda" id="celda98" onclick="destapar(this)"></div>
+			<div class="celda" id="celda99" onclick="destapar(this)"></div>
+		</div>
+
+
+
+
+	</div>	
+	
+	<div id="panel_infotodo">
+		<div id="panel_info"></div>
+		<div id='tiempo_dinamico'></div>
+	</div>
+	
+ 
+</body>
+</html>
